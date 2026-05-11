@@ -63,9 +63,8 @@ const units = [
 
 function AvailabilityBar({ total, available, urgent }) {
   const availablePct = (available / total) * 100
-
   return (
-    <div className="mt-6">
+    <div className="mt-5 lg:mt-6">
       <div className="flex justify-between items-center mb-2">
         <span className="text-[9px] tracking-[0.2em] uppercase text-offwhite/30">
           Availability
@@ -96,11 +95,11 @@ export default function Residences() {
   return (
     <section
       id="residences"
-      className="reveal px-[60px] py-[120px]"
+      className="reveal px-5 py-16 sm:px-10 sm:py-20 lg:px-[60px] lg:py-[120px]"
       style={{ background: '#111111' }}
     >
       {/* Header */}
-      <div className="flex justify-between items-end mb-[60px]">
+      <div className="flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-0 mb-10 lg:mb-[60px]">
         <h2
           className="font-serif font-light tracking-[-0.02em] leading-none"
           style={{ fontSize: 'clamp(42px, 5vw, 68px)' }}
@@ -109,17 +108,17 @@ export default function Residences() {
           <br />
           <em className="italic text-warm">Residences</em>
         </h2>
-        <div className="text-right">
+        <div className="lg:ml-auto lg:text-right">
           <p className="text-xs text-offwhite/40 max-w-[280px] leading-[1.8] mb-4">
             86 residences across 8 storeys in Dzorwulu — 68 units available
             for purchase across four collections.
           </p>
-          <div className="flex gap-6 justify-end">
-            <div className="text-right">
+          <div className="flex gap-6 lg:justify-end">
+            <div>
               <div className="font-serif text-[28px] font-light text-warm leading-none">68</div>
               <div className="text-[9px] tracking-[0.2em] uppercase text-offwhite/30 mt-1">For Sale</div>
             </div>
-            <div className="text-right">
+            <div>
               <div className="font-serif text-[28px] font-light text-offwhite/30 leading-none">18</div>
               <div className="text-[9px] tracking-[0.2em] uppercase text-offwhite/20 mt-1">Reserved</div>
             </div>
@@ -127,12 +126,12 @@ export default function Residences() {
         </div>
       </div>
 
-      {/* 4-column grid */}
-      <div className="grid grid-cols-4 gap-[2px]">
+      {/* Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[2px]">
         {units.map(({ num, type, title, total, available, details, urgent }) => (
           <div
             key={num}
-            className="residence-card card-line relative p-10 border-t overflow-hidden transition-all duration-300 hover:bg-[#1f1f1f]"
+            className="residence-card card-line relative p-8 lg:p-10 border-t overflow-hidden transition-all duration-300 hover:bg-[#1f1f1f]"
             style={{ background: '#1c1c1c', borderColor: 'rgba(201,169,110,0.2)' }}
           >
             {urgent && (
@@ -144,13 +143,13 @@ export default function Residences() {
               </div>
             )}
             <div
-              className="font-serif text-[52px] font-light leading-none mb-6"
+              className="font-serif text-[48px] lg:text-[52px] font-light leading-none mb-5 lg:mb-6"
               style={{ color: 'rgba(201,169,110,0.15)' }}
             >
               {num}
             </div>
             <p className="text-[10px] tracking-[0.3em] uppercase text-warm mb-2">{type}</p>
-            <h3 className="font-serif text-[26px] font-light mb-5">{title}</h3>
+            <h3 className="font-serif text-[24px] lg:text-[26px] font-light mb-4 lg:mb-5">{title}</h3>
             <ul className="list-none text-[12px] text-offwhite/50">
               {details.map(([key, val]) => (
                 <li

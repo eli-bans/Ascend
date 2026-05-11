@@ -174,3 +174,16 @@ body {
   background: #c9a96e;
   display: block;
 }
+
+/* Hide custom cursor on touch/mobile devices */
+@media (hover: none) {
+  body { cursor: auto; }
+  .cursor-dot,
+  .cursor-ring { display: none; }
+}
+
+/* Restore native cursor on buttons/links for touch-only devices */
+@media (hover: none) {
+  button { cursor: pointer; }
+  a { cursor: pointer; }
+}

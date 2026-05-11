@@ -20,7 +20,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="reveal grid grid-cols-2 gap-[100px] items-start px-[60px] py-[120px]"
+      className="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-[100px] items-start px-5 py-16 sm:px-10 sm:py-20 lg:px-[60px] lg:py-[120px]"
       style={{ background: '#111111' }}
     >
       {/* Left */}
@@ -39,16 +39,14 @@ export default function Contact() {
           floor plans, and guide you through selecting your residence.
         </p>
 
-        <div className="mt-12 flex flex-col gap-6">
+        <div className="mt-10 lg:mt-12 flex flex-col gap-6">
           {[
             { label: 'Location', value: 'Dzorwulu, Accra, Ghana' },
             { label: 'Developer', value: 'Reign Structura' },
             { label: 'Status', value: 'Now Selling — Limited Units' },
           ].map(({ label, value }) => (
             <div key={label} className="flex flex-col gap-1">
-              <span className="text-[9px] tracking-[0.3em] uppercase text-warm">
-                {label}
-              </span>
+              <span className="text-[9px] tracking-[0.3em] uppercase text-warm">{label}</span>
               <span className="text-sm text-offwhite/70">{value}</span>
             </div>
           ))}
@@ -57,50 +55,26 @@ export default function Contact() {
 
       {/* Right — form */}
       <form onSubmit={(e) => e.preventDefault()}>
-        <div className="mb-7">
-          <label className="block text-[9px] tracking-[0.25em] uppercase text-offwhite/40 mb-[10px]">
-            Full Name
-          </label>
-          <input
-            name="name"
-            type="text"
-            placeholder="Your name"
-            value={form.name}
-            onChange={handleChange}
-            className={inputClass}
-            style={borderStyle}
-          />
-        </div>
-
-        <div className="mb-7">
-          <label className="block text-[9px] tracking-[0.25em] uppercase text-offwhite/40 mb-[10px]">
-            Email Address
-          </label>
-          <input
-            name="email"
-            type="email"
-            placeholder="your@email.com"
-            value={form.email}
-            onChange={handleChange}
-            className={inputClass}
-            style={borderStyle}
-          />
-        </div>
-
-        <div className="mb-7">
-          <label className="block text-[9px] tracking-[0.25em] uppercase text-offwhite/40 mb-[10px]">
-            Phone Number
-          </label>
-          <input
-            name="phone"
-            type="tel"
-            placeholder="+233 ..."
-            value={form.phone}
-            onChange={handleChange}
-            className={inputClass}
-            style={borderStyle}
-          />
-        </div>
+        {[
+          { name: 'name', label: 'Full Name', type: 'text', placeholder: 'Your name' },
+          { name: 'email', label: 'Email Address', type: 'email', placeholder: 'your@email.com' },
+          { name: 'phone', label: 'Phone Number', type: 'tel', placeholder: '+233 ...' },
+        ].map(({ name, label, type, placeholder }) => (
+          <div key={name} className="mb-7">
+            <label className="block text-[9px] tracking-[0.25em] uppercase text-offwhite/40 mb-[10px]">
+              {label}
+            </label>
+            <input
+              name={name}
+              type={type}
+              placeholder={placeholder}
+              value={form[name]}
+              onChange={handleChange}
+              className={inputClass}
+              style={borderStyle}
+            />
+          </div>
+        ))}
 
         <div className="mb-7">
           <label className="block text-[9px] tracking-[0.25em] uppercase text-offwhite/40 mb-[10px]">
