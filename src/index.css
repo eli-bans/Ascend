@@ -135,6 +135,11 @@ body {
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 0.3s, transform 0.3s;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 6px 12px;
+  letter-spacing: 0.2em;
 }
 
 .gallery-item:hover .gallery-label {

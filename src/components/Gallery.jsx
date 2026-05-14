@@ -17,7 +17,7 @@ function GalleryItem({ src, alt, label, style = {}, className = '' }) {
   return (
     <div className={`gallery-item overflow-hidden relative ${className}`} style={style}>
       <img src={src} alt={alt} className="w-full h-full object-cover" />
-      <span className="gallery-label absolute bottom-5 left-5 text-[9px] tracking-[0.25em] uppercase text-offwhite/70">
+      <span className="gallery-label absolute bottom-4 left-4 text-[9px] uppercase text-offwhite">
         {label}
       </span>
     </div>
